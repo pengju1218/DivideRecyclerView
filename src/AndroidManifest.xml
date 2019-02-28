@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.forefront.second"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk tools:overrideLibrary="ToneUI" />
+    <!-- @author; mo text push one. -->
+    <!-- @author; pengju1218 text push one. -->
+    <!-- @author; pengju1218 text push one. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 获取机型信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> <!-- 往SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 查看 Wi-Fi 状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 查看网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 控制振动器 -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 防止设备休眠 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" /> <!-- 获取联系人信息，demo中演示发送通讯录消息 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- ⼩米 配置开始 < -->
+    <permission
+        android:name="cn.rongcloud.im.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="cn.rongcloud.im.permission.MIPUSH_RECEIVE" /> <!-- ⼩米 配置结束 < -->
+    <!-- GCM 配置开始 < -->
+    <permission
+        android:name="cn.rongcloud.im.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="cn.rongcloud.im.permission.C2D_MESSAGE" /> <!-- GCM 配置结束 < -->
+    <!-- 华为 配置开始 < -->
+    <!-- HMS-SDK引导升级HMS功能，访问OTA服务器需要网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- HMS-SDK引导升级HMS功能，保存下载的升级包需要SD卡写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 检测网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 检测wifi状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 为了获取用户手机的IMEI，用来唯一的标识用户。 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 如果是安卓8.0，应用编译配置的targetSdkVersion>=26，请务必添加以下权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- 华为 配置结束 < -->
+    <!-- MeiZu 配置开始 < -->
+    <!-- 兼容 flyme5.0 以下版本，魅族内部集成 pushSDK 必填，不然无法收到 消息 -->
+    <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE" />
+
+    <permission
+        android:name="cn.rongcloud.im.push.permission.MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="cn.rongcloud.im.push.permission.MESSAGE" /> <!-- 兼容 flyme3.0 配置权限 -->
+    <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" /> <!-- MeiZu 配置结束 < -->
+    <!-- OPPPO 权限配置 -->
+    <uses-permission android:name="com.coloros.mcs.permission.SEND_MCS_MESSAGE" /> <!-- OPPO 配置结束 -->
+    <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@drawable/install_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".activity.find.bbs.ForwardActivity" />
+        <activity android:name=".activity.second.MessageActivity" />
+        <activity
+            android:name=".activity.my.mo.collection.ImgAndVideoActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- 设置 -->
+        <activity android:name=".activity.my.setting.Asactivity" /> <!-- 账户与安全 -->
+        <activity android:name=".activity.my.setting.InformationAcivity" /> <!-- 新消息通知 -->
+        <activity android:name=".activity.my.setting.PrivacyAcivity" /> <!-- 隐私 -->
+        <activity android:name=".activity.my.setting.CurrencyAcivity" /> <!-- 通用 -->
+        <activity android:name=".activity.my.setting.HelpAndFeedBackAcivity" /> <!-- 帮助与反馈 -->
+        <activity android:name=".activity.my.setting.AboutSecondActivity" /> <!-- 关于秒音 -->
+        <activity android:name=".activity.my.setting.AddMeAcivity" /> <!-- 添加我的方式 -->
+        <activity android:name=".activity.my.setting.BgSealAcitivity" /> <!-- 添加聊天背景 -->
+        <activity android:name=".activity.my.SettingActivity" /> <!-- 我的设置 -->
+        <!-- 发现 -->
+        <activity android:name=".activity.find.SeondMallActivity" /> <!-- 秒音商城 -->
+        <activity android:name=".activity.find.spirited.SpiritedMallActivity" /> <!-- 公益商城 -->
+        <activity android:name=".activity.find.RedPacketActivity" /> <!-- 红包广场 -->
+        <!-- 我的 -->
+        <activity
+            android:name=".activity.my.mo.MyAddressActivity"
+            android:theme="@style/AppTheme" /> <!-- 我的地址 -->
+        <activity
+            android:name=".activity.my.MyPersonInforMationActivity"
+            android:theme="@style/AppTheme" /> <!-- 我的个人信息 -->
+        <activity
+            android:name=".activity.my.mo.MyRefoundAfterSealActivity"
+            android:theme="@style/AppTheme" /> <!-- 我的退款与售后 -->
+        <activity
+            android:name=".activity.my.mo.MyOrderActivity"
+            android:theme="@style/AppTheme" /> <!-- 我的定单 -->
+        <activity
+            android:name=".activity.my.mo.MyGroupActivity"
+            android:theme="@style/AppTheme" /> <!-- 我的群 -->
+        <activity
+            android:name=".activity.my.MyFrendActivity"
+            android:theme="@style/AppTheme" /> <!-- 我的好友 -->
+        <activity
+            android:name=".activity.my.mo.MyRealseActivity"
+            android:theme="@style/AppTheme" /> <!-- 我的发布 -->
+        <activity
+            android:name=".activity.my.mo.MyWalletActivity"
+            android:theme="@style/AppTheme" /> <!-- 我的钱包 -->
+        <activity
+            android:name=".activity.my.MyAlbumActivity"
+            android:theme="@style/AppTheme" /> <!-- 我的相册 -->
+        <activity
+            android:name=".activity.my.MyFollowActivity"
+            android:theme="@style/AppTheme" /> <!-- 我的关注 -->
+        <activity
+            android:name=".activity.my.MyShopChatActivity"
+            android:theme="@style/AppTheme" /> <!-- 购物车 -->
+        <activity
+            android:name=".activity.my.MyCouponActivity"
+            android:theme="@style/AppTheme" /> <!-- 优惠券 -->
+        <activity
+            android:name=".activity.my.MyCollectionActivity"
+            android:theme="@style/AppTheme" /> <!-- 我的收藏 -->
+        <activity
+            android:name=".activity.group.GroupFindActivity"
+            android:theme="@style/AppTheme" /> <!-- 查找群组 -->
+        <!-- <activity android:name=".activity.my.MyAddressActivity" /> &lt;!&ndash; 我的地址 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyPersonInforMationActivity" /> &lt;!&ndash; 我的个人信息 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyRefoundAfterSealActivity" /> &lt;!&ndash; 我的退款与售后 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyOrderActivity" /> &lt;!&ndash; 我的定单 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyGroupActivity" /> &lt;!&ndash; 我的群 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyFrendActivity" /> &lt;!&ndash; 我的好友 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyRealseActivity" /> &lt;!&ndash; 我的发布 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyWalletActivity" /> &lt;!&ndash; 我的钱包 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyAlbumActivity" /> &lt;!&ndash; 我的相册 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyFollowActivity" /> &lt;!&ndash; 我的关注 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyShopChatActivity" /> &lt;!&ndash; 购物车 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyCouponActivity" /> &lt;!&ndash; 优惠券 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.my.MyCollectionActivity" /> &lt;!&ndash; 我的收藏 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.group.GroupFindActivity" /> &lt;!&ndash; 查找群组 &ndash;&gt; -->
+        <!-- start and from moxiaoqing: -->
+        <activity android:name=".activity.my.mo.UpdateHeadPhotoActivity" /> <!-- 修改头像 -->
+        <activity android:name=".activity.my.mo.MyAttentionActivity" /> <!-- 我的关注 -->
+        <activity android:name=".activity.my.mo.MyFriendsActivity" /> <!-- 我的好友 -->
+        <activity android:name=".activity.my.mo.UserInfoMsgActivity" /> <!-- 个人信息 -->
+        <!-- end -->
+        <activity android:name=".activity.main.FindPassTwoActivity" /> <!-- 找回密码第二步 -->
+        <!-- main -->
+        <activity android:name=".activity.main.AgreementActivity" /> <!-- 我的协议 -->
+        <!-- <activity android:name=".activity.main.RegisterActivity" ></activity> -->
+        <!-- 注册 -->
+        <activity android:name=".activity.main.ShotMessageLoginActivity" /> <!-- 短信登录 -->
+        <activity android:name=".activity.main.BindingFirstActivity" /> <!-- 绑定手机号第一步 -->
+        <activity android:name=".activity.main.BindingTwoActivity" /> <!-- 绑定手机号第二步 -->
+        <activity android:name=".activity.main.FindPassActivity" /> <!-- 找回密码第一步 -->
+        <activity android:name=".activity.find.location.LocationCityActivity" /> <!-- 城市定位 -->
+        <activity
+            android:name=".activity.PhotoActivity"
+            android:launchMode="singleTask" /> <!-- 图片查看器页面 -->
+        <!-- <activity android:name=".activity.main.ShotMessageLoginActivity" ></activity> -->
+        <!-- <activity -->
+        <!-- android:name=".activity.main.ShotMessageLoginActivity" -->
+        <!-- android:theme="@style/AppTheme" /> &lt;!&ndash; 短信登录 &ndash;&gt; -->
+        <!-- <activity -->
+        <!-- android:name=".activity.main.BindingFirstActivity" -->
+        <!-- android:theme="@style/AppTheme" /> &lt;!&ndash; 绑定手机号第一步 &ndash;&gt; -->
+        <!-- <activity -->
+        <!-- android:name=".activity.main.BindingTwoActivity" -->
+        <!-- android:theme="@style/AppTheme" /> &lt;!&ndash; 绑定手机号第二步 &ndash;&gt; -->
+        <!-- <activity -->
+        <!-- android:name=".activity.main.FindPassActivity" -->
+        <!-- android:theme="@style/AppTheme" /> &lt;!&ndash; 找回密码第一步 &ndash;&gt; -->
+        <!-- <activity -->
+        <!-- android:name=".activity.main.FindPassTwoActivity" -->
+        <!-- android:theme="@style/AppTheme" /> &lt;!&ndash; 找回密码第二步 &ndash;&gt; -->
+        <!-- <activity android:name=".activity.main.ShotMessageLoginActivity"  android:theme="@style/AppTheme"></activity> -->
+        <!-- 短信验证码登录 -->
+        <!-- <activity android:name=".activity.main.LoginActivity"></activity> -->
+        <!-- 登录页面 -->
+        <!-- <activity android:name=".activity.main.RegisterActivity"></activity> -->
+        <!-- 注册页面 -->
+        <!--
+ <activity
+             android:name=".activity.main.MainActivity" />
+        -->
+        <!-- 主页面 -->
+        <activity android:name=".activity.main.MainActivity" /> <!-- 登录页面 -->
+        <activity android:name=".activity.main.RegisterActivity" /> <!-- 注册页面 -->
+        <activity
+            android:name=".activity.main.selectgroup.SelectGroupAcitivity"
+            android:screenOrientation="portrait" /> <!-- 登陆注册选择群组页面 -->
+        <!-- 秒音 -->
+        <activity android:name=".activity.second.SelectOneChatActivity" /> <!-- 选择联系人 -->
+        <activity android:name=".activity.second.AddFriendActivity" /> <!-- 添加好友 -->
+        <activity android:name=".activity.second.SearchFriendActivity" /> <!-- 查找好友 -->
+        <activity android:name=".activity.group.GroupRecommendActivity" /> <!-- 群组推荐 -->
+        <activity android:name=".activity.find.PublishActivity" /> <!-- 品牌商城 -->
+        <activity android:name=".activity.find.bbs.CommentsDetailActivity" /> <!-- 评论详情 -->
+        <activity android:name=".activity.my.mo.smallcharge.MySmallChargeActivity" /> <!-- 我的零钱 -->
+        <activity android:name=".activity.my.mo.smallcharge.ChargeActivty" />
+        <activity android:name=".activity.my.mo.smallcharge.SmallChargeListActivity" />
+        <activity android:name=".activity.my.mo.smallcharge.CashActivity" />
+        <activity android:name=".activity.my.mo.smallcharge.MakeChargeActivity" />
+        <activity android:name=".activity.my.mo.smallcharge.AddBankActivity" />
+        <activity android:name=".activity.my.mo.smallcharge.MyBankActivity" />
+        <activity android:name=".activity.my.mo.smallcharge.BankCodeActivity" />
+        <activity android:name=".activity.my.mo.smallcharge.SelectBankActivity" />
+        <activity android:name=".activity.my.mo.smallcharge.SetPassActivity" />
+        <activity android:name=".activity.my.xiangce.SeeAblueActivity" />
+        <activity android:name=".activity.my.xiangce.CreateAlbumActivity" />
+        <activity android:name=".activity.my.xiangce.AblueQXActivity" />
+        <activity android:name=".activity.second.OFActivity" />
+        <activity android:name=".activity.find.bbs.ReleasePostActivity" /> <!-- 发帖页面 -->
+        <activity android:name=".activity.find.location.NearLocationActivity" /> <!-- 附近查找 -->
+        <activity android:name=".activity.my.mo.MyNewFriendsActivity" />
+    <!--    <activity android:name=".activity.my.mo.loc.MyLocationActivity" />
+-->
+        <service android:name="com.amap.api.location.APSService" />
+        <!--
+<provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.forefront.rongIm.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/rc_file_path" />
+        </provider>
+        -->
+        <!-- 请将CHANNAL改为app的发布渠道 < -->
+        <meta-data
+            android:name="InstallChannel"
+            android:value="CHANNAL" /> <!-- 高德地图 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="f8731709318462ce904d1aa9fa0e6828" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="577b2b55e0f55afbcb0026c6" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="RongCloudApp" /> <!-- 第三方的推送 权限 广播 和服务 -->
+        <!-- 小米 配置开始 < -->
+        <service
+            android:name="com.xiaomi.push.service.XMPushService"
+            android:enabled="true" />
+        <service
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService"
+            android:enabled="true" /> <!-- 注：此service必须在2.2.5版本以后（包括2.2.5版本）加入 -->
+        <service
+            android:name="com.xiaomi.push.service.XMJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- 注：此service必须在3.0.1版本以后（包括3.0.1版本）加入 -->
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.xiaomi.push.service.receivers.PingReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="io.rong.push.platform.mi.MiMessageReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR" />
+            </intent-filter>
+        </receiver> <!-- 小米 配置结束 < -->
+        <!-- HMS 配置开始 -->
+        <meta-data
+            android:name="com.huawei.hms.client.appid"
+            android:value="10535759" />
+
+        <service
+            android:name="io.rong.imlib.ipc.RongService"
+            android:process=":ipc" /> <!-- <service android:name="io.rong.imlib.ReConnectService" /> -->
+        <receiver android:name="io.rong.imlib.ConnectChangeReceiver" />
+        <receiver
+            android:name="io.rong.imlib.HeartbeatReceiver"
+            android:process=":ipc" /> <!-- <service android:name=".server.UpdateService" /> -->
+        <!-- HMS 配置开始 -->
+        <meta-data
+            android:name="com.huawei.hms.client.appid"
+            android:value="10535759" /> <!-- 解决华为移动服务升级问题的透明界面（必须声明） -->
+        <activity
+            android:name="io.rong.push.platform.hms.common.HMSAgentActivity"
+            android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent">
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent" />
+        </activity> <!-- [END firebase_iid_service] -->
+        <!--
+                &lt;!&ndash; MeiZu 配置开始 < &ndash;&gt;
+                <receiver android:name="io.rong.push.platform.meizu.MeiZuReceiver">
+                    <intent-filter>
+                        &lt;!&ndash; 接收 push 消息 &ndash;&gt;
+                        <action android:name="com.meizu.flyme.push.intent.MESSAGE" />
+                        &lt;!&ndash; 接收 register 消息 &ndash;&gt;
+                        <action android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK" />
+                        &lt;!&ndash; 接收 unregister 消息&ndash;&gt;
+                        <action android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK" />
+                        />
+                        &lt;!&ndash; 兼容低版本 Flyme3 推送服务配置 &ndash;&gt;
+                        <action android:name="com.meizu.c2dm.intent.REGISTRATION" />
+                        <action android:name="com.meizu.c2dm.intent.RECEIVE" />
+
+                        <category android:name="cn.rongcloud.im" />
+                    </intent-filter>
+                </receiver>
+        -->
+        <!-- MeiZu 配置结束 < -->
+        <!-- 第三方推送的权限 广播 服务 配置结束 -->
+        <!--
+  <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="cn.rongcloud.im.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/rc_file_path" />
+        </provider>
+        -->
+        <!-- vivo 推送配置 开始 -->
+        <service
+            android:name="com.vivo.push.sdk.service.CommandClientService"
+            android:exported="true" />
+
+        <activity
+            android:name="com.vivo.push.sdk.LinkProxyClientActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- 推送配置项 -->
+        <meta-data
+            android:name="com.vivo.push.api_key"
+            android:value="2efff5bb-2713-424a-8042-5242421b3dc9" />
+        <meta-data
+            android:name="com.vivo.push.app_id"
+            android:value="10441" /> <!-- push 应用定义消息 receiver 声明 -->
+        <receiver android:name="io.rong.push.platform.vivo.VivoPushMessageReceiver">
+            <intent-filter>
+
+                <!-- 接收 push 消息 -->
+                <action android:name="com.vivo.pushclient.action.RECEIVE" />
+            </intent-filter>
+        </receiver> <!-- vivo 推送配置 结束 -->
+        <!-- OPPO push 配置开始 -->
+        <service
+            android:name="com.coloros.mcssdk.PushService"
+            android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
+            <intent-filter>
+                <action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

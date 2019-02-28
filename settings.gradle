@@ -1,0 +1,58 @@
+
+
+
+
+
+include ':ToneUI'
+project(':ToneUI').projectDir = new File('../ToneUI')
+
+
+include ':IMKit'
+project(':IMKit').projectDir = new File('../IMKit')
+
+
+/*
+
+include ':httpnet'
+project(':httpnet').projectDir = new File('../httpnet')*/
+
+include ':IMLib'
+project(':IMLib').projectDir = new File('../IMLib')
+
+
+include ':zxing-simplify'
+project(':zxing-simplify').projectDir = new File('../zxing-simplify')
+
+
+
+
+
+
+/*
+
+include ':updateApp'
+project(':updateApp').projectDir = new File('../updateApp')
+*/
+
+
+
+
+
+/*
+include ':CallKit'
+project(':CallKit').projectDir = new File('../CallKit')
+
+include ':CallLib'
+project(':CallLib').projectDir = new File('../CallLib')
+
+include ':RedPacket'
+project(':RedPacket').projectDir = new File('../RedPacket')
+
+include ':RCSticker'
+project(':RCSticker').projectDir = new File('../RCSticker')
+*/
+
+include ':FlycoTabLayout_Lib'
+project(':FlycoTabLayout_Lib').projectDir = new File('../FlycoTabLayout_Lib')
+
+

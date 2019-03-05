@@ -1,26 +1,50 @@
 package com.csdn.rec;
 
+import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+public class SpaceItemDecoration extends RecyclerView.ItemDecoration{
 
-public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
+    private int leftRight;
+    private int topBottom;
 
-    private int space;
+//leftRight为横向间的距离 topBottom为纵向间距离
+    public SpaceItemDecoration(int leftRight, int topBottom) {
+        this.leftRight = leftRight;
+        this.topBottom = topBottom;
+    }
 
-    public SpaceItemDecoration(int space) {
-        this.space = space;
+    @Override
+    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+        super.onDraw(c, parent, state);
     }
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-        //不是第一个的格子都设一个左边和底部的间距
-        outRect.left = space;
-        outRect.bottom = space;
-        //由于每行都只有3个，所以第一个都是3的倍数，把左边距设为0
-        if (parent.getChildLayoutPosition(view) %4==0) {
-            outRect.left = 0;
+        LinearLayoutManager layoutManager = (LinearLayoutManager) parent.getLayoutManager();
+        //竖直方向的
+        if (layoutManager.getOrientation() == LinearLayoutManager.VERTICAL) {
+            //最后一项需要 bottom
+            if (parent.getChildAdapterPosition(view) == layoutManager.getItemCount() - 1) {
+                outRect.bottom = topBottom;
+            }
+            outRect.top = topBottom;
+            outRect.left = leftRight;
+            outRect.right = leftRight;
+        } else {
+            //最后一项需要right
+            if (parent.getChildAdapterPosition(view) == layoutManager.getItemCount() - 1) {
+                outRect.right = leftRight;
+            }
+            outRect.top = topBottom;
+            outRect.left = leftRight;
+            outRect.bottom = topBottom;
         }
     }
+
+
+
 
 }
